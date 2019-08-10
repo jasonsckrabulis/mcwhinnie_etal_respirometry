@@ -1,0 +1,25 @@
+Item,Qty Needed,Unit Cost
+Power,,
+9V battery,1,2.5
+9V Battery Clip with 5.5/2.1mm Plug,1,2.95
+Panel Mount 2.1mm DC Barrel Jack,1,2.95
+3V CR1220 Battery,1,0.95
+,,
+Component Parts,,
+1k Ohm Resistor,4,0.0475
+10k Ohm Resistor,1,0.03
+2N3904 NPN Transistor,2,0.5
+Diffused Green LED 5mm,1,0.16
+Diffused Red LED 5mm,1,0.16
+SPDT Panel Mount Slide Switch,1,1.5
+,,
+Prefabricated PCB Modules,,
+Adafruit 5V Pro Trinket (16MHz),1,9.95
+DS1307 Real-time Clock Breakout Board,1,7.5
+MicroSD Card Breakout+,1,7.5
+,,
+Sensors,,
+Honeywell Zephyr Gas Sensor (HAFBLF0750CAAX5),1,85
+Seeed Grove O2 Breakout,1,59
+,,
+,Cost,180.6975
