@@ -1,0 +1,31 @@
+McWhinine et al. 2019 Breath Bout Data README
+
+Variables:
+
+Block					Temporal block the measurements were taken in. Two blocks were acclimated and performed at a time, for a total of two times. These blocks were all over the summer of 2018.
+Measurement				For the breath bouts, animals' performance was measured at one of two sequential time points; ZeroOne and ZeroTwo. Both measurements took place at zero days post acclimation.
+FrogID					The measurement-specific identification code for each frog. Clarifies which block, performance measurement, and individiaul animal for those specific values.
+VideoID					The identification of which Breath Bout within each specific performance measurement. Up to 3 breath bout periods were taken from each performance measurement from a given frog.
+AccTemp					Temperature the animal was acclimated at for 17 days.
+AccInc					Incubator number in which the animal was acclimated.
+PerfTemp				Temperature at which the animals' metabolic performance was measured.
+PerfInc					Incubator in which the animals' metabolic performance was measured.
+Breaths					Total number of measured inhales and exhales for a given breath bout.
+AvgMass(g)				Average mass of the animal between pre- and post-acclimation.
+minTime(ms)				Start time for the individual breath bout.
+maxTime(ms)				End time for the individual breath bout.
+totalTime(s)				Total time for the individual breath bout in seconds.
+totalTime(min)				Total time for the individual breath bout in minutes.
+O2Measure(mLO2/mLAir)(sec)		Cumulative volumetric measurement of oxygen from the breath bout.
+AvgFlowRate(SCCMAir/min)		Average flow rate of entire performance measurement in standard conditions (0oC, 1atm). Used to quantify amount of oxygen consumed.
+CorrectedFlowRate(mLAir/min)		Flow rate of entire performance measurement at local environmental conditions (20oC, 1.002633atm). Incorporates temperature and atmospheric pressure of environment where measurements were taken.
+AvgAirDensity(gAir/mLair)		Average air density of environment where measurements were taken between the months of June & July of 2018. Calculations based on weather data from a local weather station.
+WeightPerc(gO2/gAir)			Standard value for weight percent of oxygen in air.
+VolPerc(mLO2/mLAir)			Standard value for volume percent of oxygen in lair.
+O2Consumed(mgO2)			Milligrams of oxygen consumed for the breath bout.
+mgO2ConsPerBreath			Milligrams of oxygen consumed per breath for the breath bout.
+negTotalFlow(mLAir/Min)(sec)		Total negative volume of air consumed. Indicative of inhalation from the animal.
+posTotalFlow(mLAir/Min)(sec)		Total positive volume of air consumed. Indicative of exhalation from the animal.
+BreathVolSCCM(mLAir/Min)(sec)		Summation of absolute values of negative + positive volumes of air cosumed by the animal. Equates to total volume of air respired during the breath bout. Values at standard conditions.
+totBreathVolCorrected(mLAir/Min)(sec)	Summation of absolute values of negative + positive volumes of air cosumed by the animal. Equates to total volume of air respired during the breath bout. Values at local environmental conditions.
+mLAirPerBreath				Milliliters of air consumed per breath.
