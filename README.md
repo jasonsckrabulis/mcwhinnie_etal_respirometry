@@ -42,7 +42,7 @@ Our goal for this project was to develop a low-cost alternative to conventional 
 * README.md  
 * Bill of Materials.csv  
    Parts list, excluding an enclosure, O2 modification, general supplies & equipment, and microSD card  
-* data  
+* data (will be uploaded upon acceptance)  
    Folder of experimental data as .csv and accompanying .txt files used in data analysis for manuscript  
    * Example Respirometry Measurement.csv  
    * McWhinnie et al. 2019 Breath Bout Data.csv  
