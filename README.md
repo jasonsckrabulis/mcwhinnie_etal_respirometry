@@ -18,7 +18,7 @@ Thomas R Raffel: raffel@oakland.edu
 ### Issues and suggestions
 
 Please email jason.sckrabulis@gmail.com with any issues or suggestions for the respirometry device, or submit via the GitHub issues tab for this [repository](https://github.com/jasonsckrabulis/mcwhinnie_etal_respirometry/issues).
-For questions concerning the manuscript, please email the corresponding author at rbmcwhin@gmail.com.
+For questions concerning the manuscript, please email the corresponding author at raffel@oakland.edu.
 
 ### Change log
 
