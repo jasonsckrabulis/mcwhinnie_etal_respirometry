@@ -13,7 +13,7 @@ Jason P Sckrabulis: jason.sckrabulis@gmail.com
 
 Thomas R Raffel: raffel@oakland.edu
 
->Conceptualization: TRR, RBM & JPS. Methodology: TRR, RBM, & JPS. Analysis: RBM, TRR, & JPS. Project box construction: JPS & RBM. Writing – review & editing: RBM & TRR. Funding acquisition: TRR. Literature searching: RBM & TRR.
+>Conceptualization: TRR, RBM & JPS. Methodology: TRR, RBM, & JPS. Analysis: RBM, TRR, & JPS. Respirometer design: JPS. Respirometer construction: JPS & RBM. Writing – review & editing: RBM & TRR. Funding acquisition: TRR. Literature searching: RBM & TRR.
 
 ### Issues and suggestions
 
