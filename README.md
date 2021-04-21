@@ -1,8 +1,6 @@
 
 ## McWhinnie _et al_. - Temperature and mass scaling affect cutaneous and pulmonary respiratory performance in a diving frog
 
-An open-source flow-through respirometry device to measure flow rate and percent oxygen.
-
 ---
 
 ### Authors and maintainers
