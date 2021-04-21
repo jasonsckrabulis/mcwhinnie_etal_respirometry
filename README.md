@@ -40,17 +40,21 @@ Our goal for this project was to develop a low-cost alternative to conventional 
 ### Repository contents
 
 * README.md  
-* Bill of Materials.csv  
+* `Bill of Materials.csv`  
    Parts list, excluding an enclosure, O2 modification, general supplies & equipment, and microSD card  
 * data (will be uploaded upon acceptance)  
-   Folder of experimental data as .csv file used in data analysis for manuscript (variable descriptions are below)  
-   * Example respirometry measurement.csv  
-   * McWhinnie breath bout data.csv  
-   * McWhinnie master data.csv  
-* RespirometryDevice.txt  
-   Arduino program code, provided as a .txt file for editing and viewing in any text editor.  
+   Folder of experimental data as .csv files used in data analysis for manuscript (variable descriptions are below)  
+   * `Example respirometry measurement.csv`  
+   * `McWhinnie breath bout data.csv`  
+   * `McWhinnie master data.csv`  
+* code (will be uploaded upon acceptance)  
+   Folder of specialized R code (as .R files) used for data processing and respirometer Arduino code (as .ino file) 
+   * `Example respirometry measurement.csv`  
+   * `McWhinnie breath bout data.csv`  
+   * `McWhinnie master data.csv`  
+   * `RespirometryDevice.ino`    
 * imgs  
-   Folder of images used in README.md
+   Folder of images used in `README.md`
 
 ---
 
