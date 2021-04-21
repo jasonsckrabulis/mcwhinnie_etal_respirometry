@@ -7,7 +7,7 @@ MeasurementID		Identification of a given measurement for a given frog.
 Block			Temporal block the animal was measured in.
 DayNum			One of five days performance measurements were taken on (-1, 0, 1, 4, 8). For the additional post-experimental measurements, DayNum 0 is used as a place holder since there was no acclimation period for these frogs. 
 Day			One of six performance measurements -- distinguishes between performance measurements one and two for the zero-day measurements.
-AccMassChange(g)     Change in mass in grams of a given frog during the acclimation period.
+AccMassChange(g)      Change in mass in grams of a given frog during the acclimation period.
 AvgMass(g)		Average of mass of each frog taken immediately before and after the acclimation period in grams.
 AccTemp			Temperature of acclimation in degrees Celsius.
 AccInc			Incubator housed in during acclimation period.
