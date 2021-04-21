@@ -1,4 +1,4 @@
-#integral measurements for an entire block for TOTAL OXYGEN CONSUMPTION
+# Integral calculations for oxygen measurements for an entire experimental block for TOTAL OXYGEN CONSUMPTION
 
 #make a vector of all filenames, full path names required to use output as loop
 ###################
