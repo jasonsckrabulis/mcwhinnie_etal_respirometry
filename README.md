@@ -49,9 +49,8 @@ Our goal for this project was to develop a low-cost alternative to conventional 
    * `McWhinnie master data.csv`  
 * code (will be uploaded upon acceptance)  
    Folder of specialized R code (as .R files) used for data processing and respirometer Arduino code (as .ino file) 
-   * `Example respirometry measurement.csv`  
-   * `McWhinnie breath bout data.csv`  
-   * `McWhinnie master data.csv`  
+   * `Example respirometry measurement.R`  
+   * `McWhinnie breath bout data.R`    
    * `RespirometryDevice.ino`    
 * imgs  
    Folder of images used in `README.md`
