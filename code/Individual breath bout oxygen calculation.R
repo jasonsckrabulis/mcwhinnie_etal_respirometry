@@ -139,11 +139,8 @@ lines(smFlow$x, smFlow$y, type="l", col="green")
 # The lengths of O2 and flow rate will be different and the data need to be matched up
 
 #Function for trimming (written after conducting O2 quantifications on entire frogs)
-RawData <- as.data.frame(cbind(Millis=mydata[,3], RawO2=mydata[,9], RawFlow=mydata[,6]))
-RawData <- subset(RawData, RawData$Millis!="NA")
-
-#arguments:
-#data: data=entire dataset (ex: data = TrimData)
+# Arguments:
+# data: data=entire dataset (ex: data=TrimData)
 TrimBreath <- function(data){
 
 	# Determine which selection has the higher STARTING Millis value
@@ -198,6 +195,8 @@ TrimBreath <- function(data){
 }
 
 # Run the function on the raw data
+RawData <- as.data.frame(cbind(Millis=mydata[,3], RawO2=mydata[,9], RawFlow=mydata[,6]))
+RawData <- subset(RawData, RawData$Millis!="NA")
 TrimData <- TrimBreath(data=RawData)
 
 # correctedRaw = trimmed raw - smoothing spline
