@@ -11,6 +11,6 @@ AccTemp					Temperature the animal was acclimated at for 17 days.
 PerfInc					Incubator in which the animals' metabolic performance was measured.
 PerfTemp				Temperature at which the animals' metabolic performance was measured.
 Breaths					Total number of measured inhales and exhales for a given breath bout.
-BreathsPerMin                          Number of total breaths taken per minute during the breath bout.
-mgO2ConsPerBreath                         Average mass of oxygen (in mg) consumed per breath.
-mLAirPerBreath                        Average volume of air (in mL) breathed per breath.
+BreathsPerMin                            Number of total breaths taken per minute during the breath bout.
+mgO2ConsPerBreath                        Average mass of oxygen (in mg) consumed per breath.
+mLAirPerBreath                           Average volume of air (in mL) breathed per breath.
