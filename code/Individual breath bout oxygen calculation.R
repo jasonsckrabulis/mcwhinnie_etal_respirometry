@@ -65,14 +65,14 @@ SubsetFlow[SubsetFlow==0] <- NA
 
 # Loops to insert selected data from above into vectors
 for(i in 1:length(selectedPointsO2)){
-  SubsetMillisO2[selectedPointsO2[i]] <- mydata$Millis[selectedPointsO2[i]]
-  SubsetO2[selectedPointsO2[i]] <- mydata$O2Percent[selectedPointsO2[i]]
-  }
+	  SubsetMillisO2[selectedPointsO2[i]] <- mydata$Millis[selectedPointsO2[i]]
+	  SubsetO2[selectedPointsO2[i]] <- mydata$O2Percent[selectedPointsO2[i]]
+}
 
 for(i in 1:length(selectedPointsFlow)){
-  SubsetMillisFlow[selectedPointsFlow[i]] <- mydata$Millis[selectedPointsFlow[i]]
-  SubsetFlow[selectedPointsFlow[i]] <- mydata$FlowRate[selectedPointsFlow[i]]
-  }
+	  SubsetMillisFlow[selectedPointsFlow[i]] <- mydata$Millis[selectedPointsFlow[i]]
+	  SubsetFlow[selectedPointsFlow[i]] <- mydata$FlowRate[selectedPointsFlow[i]]
+}
 
 # Create data frame of data
 SubsetDataBreath <- cbind(SubsetMillisO2, SubsetO2, SubsetMillisFlow, SubsetFlow)
