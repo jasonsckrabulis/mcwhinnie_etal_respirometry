@@ -54,7 +54,7 @@ Our goal for this project was to develop a low-cost alternative to conventional 
 
 ---
 
-### Development
+### Respirometer development
 
 For our respirometry devices to be viable, low-cost alternatives to commerical products, we opted to develop the device on the [Arduino platform](https://arduino.cc). Arduino is an open-source microcontroller platform designed to be accessible to new users with little programming and/or electronics expertise. Since its release, a mass accumulation of documentation, tutorials, and code examples exists on the internet. Due to its open-source nature, other companies have taken the Arduino platform and tailored it to specific needs (e.g., Adafruit). Adafruit's Pro Trinket product line further reduced costs by reducing the number of available analog and digitial I/O pins, footprint. For our fast processing and 5V sensor requirements, we utilized the Adafruit Pro Trinket 5V 16MHz microcontroller (Fig. 1A, #1) for our devices. In our case, we used right-angle headers for the FTDI pins of the Pro Trinket to better fit our enclosure and allow for flow rate calibration when connected to a computer.
 
@@ -67,18 +67,14 @@ For experimental use, we added a microSD card (Fig. 1A, #7) and real-time clock 
 <img src="https://github.com/jasonsckrabulis/mcwhinnie_etal_respirometry/blob/master/imgs/schematic.png" width=60%>
 Figure 1: Respirometry device schematic and photos. A) Schematic of Adafruit Pro Trinket microcontroller and electronic components. Wire colors are based on standard electronics coding. Numbers indicate components: (1) Pro Trinket, (2) Power jack and indicator LEDs, (3) input switch, (4) Seeed Grove oxygen sensor, (5) Zephyr™ flow sensor, (6) Real-time clock (RTC) module, and (7) microSD card module. (4) and (5) are depicted as generic connectors, but the right-most pin is “pin 1” of each module. Schematic generated in Fritzing (v0.9.3; https://www.fritzing.org) with Adafruit, Seeed Studio, and Sparkfun parts libraries. B) Front of a respirometry device, which has a clear cover to also allow visualization of LEDs inside the box during measurements. C) Back of a respirometry device, showing (8) oxygen sensor covered by a modified plastic coin holder that channels air over the sensor and (9) airflow sensor ports. 
 
----
-
-### Operation
+#### Operation
 
 The respirometry device was designed for ease of use. See Figure 2 for a pictoral representation of the following text, but see RespirometerDevice.txt for complete, commented operational code. Upon receiving power, the device checks for a valid microSD card, and enters _Standby_ until the switch is flipped. When the switch is flipped and the digital input is detected, the device creates and opens a new data log file and enters _Warm-up_, where voltage is supplied to the oxygen sensor for 20 minutes followed by 30ms for the flow rate sensor (manufacturer specifications). After _Warm-up_, the device enters _Collection_ and records the actual start time as tracked by the RTC. It is important to note that RTC time regularly drifts, and we recommend initializing RTC prior to every experimental block.  In _Collection_ the device measures voltage and current change of both sensors, calculates flow rate and oxygen percentage, and loads them into memory. When the user flips the switch again, the device records all data to the data file, closes it, and enters _Standby_. The device supports multiple experimental periods by continuing to enter and exit _Standby_ following measurements. We were able to collect and average of ~80 measurements per second, allowing us to measure small changes in flow rate by lung movement of small frogs and amphibians.
 
 <img src="https://github.com/jasonsckrabulis/mcwhinnie_etal_respirometry/blob/master/imgs/operation.png" width=60%>
 Figure 2: Outline of microcontroller-driven respirometry device operation programming.
 
----
-
-### Example
+#### Example
 
 Measurements logged by our respirometry device for a single animal's measurement are provided in [data](https://github.com/jasonsckrabulis/mcwhinnie_etal_respirometry/tree/master/data). Once an individual's respiratory performance was measured, we quantified metabolism as four proxies: 1) cutaneous respiration, 2) pulmonary respiration, 3) total respiration, and 4) breath rate. For a detailed description of experimental methods, see the full manuscript. Our device was used to quantify only 2 & 4 though direct calculation of oxygen (2) and counting of individual breaths (4). All analyses and data manipulation were done in R (v3.5.1; https://www.r-project.org).
 
