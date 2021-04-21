@@ -1,21 +1,21 @@
-#Select BB CSV file
-mydata<-read.csv(file.choose(),header=TRUE)
+# Breath bout oxygen calculations
 
-#libraries
-#gatepoints- for free hand selection
+####
+# Libraries
 library(gatepoints)
-
-#zoo- for na.fill (replacement of NAs)
 library(zoo)
 
 #__________________________________________________________________________________
-#SELECT DATA
-#Subset FlowRate data to not include NA
-SelectFlow<- subset(mydata[,c(3,6)],Millis!="NA")
-#subset FlowRate data to not include NA
-SelectO2<-subset(mydata[,c(3,9)],Millis!="NA")
+# Select individual frog's breath bout dataset
+mydata <- read.csv(file.choose(), header=TRUE)
 
-#PLOTTING BOTH O2 & FLOWRATE TO DETERMINE WHICH 3 TIME SECTIONS WE ARE GOING TO USE
+# Subset FlowRate data to not include NA
+SelectFlow <- subset(mydata[,c(3,6)], Millis!="NA")
+# subset FlowRate data to not include NA
+SelectO2 <- subset(mydata[,c(3,9)], Millis!="NA")
+
+####
+# PLOTTING BOTH O2 & FLOWRATE TO DETERMINE WHICH 3 TIME SECTIONS WE ARE GOING TO USE
 #make a LARGE custom plot window
 par(mfrow=c(2,1),dev.new(width=29,height=18))
 #plot raw O2 to help determine breaths
