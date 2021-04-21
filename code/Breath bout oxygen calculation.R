@@ -6,7 +6,7 @@ library(gatepoints)
 library(zoo)
 
 #__________________________________________________________________________________
-# Select individual frog's breath bout dataset
+# Select individual frog's measurement dataset
 mydata <- read.csv(file.choose(), header=TRUE)
 
 # Subset FlowRate data to not include NA
@@ -15,37 +15,36 @@ SelectFlow <- subset(mydata[,c(3,6)], Millis!="NA")
 SelectO2 <- subset(mydata[,c(3,9)], Millis!="NA")
 
 ####
-# PLOTTING BOTH O2 & FLOWRATE TO DETERMINE WHICH 3 TIME SECTIONS WE ARE GOING TO USE
-#make a LARGE custom plot window
-par(mfrow=c(2,1),dev.new(width=29,height=18))
-#plot raw O2 to help determine breaths
-plot(SelectO2$Millis,SelectO2$O2Percent,cex=0.25,ylim=c(mean(SelectO2$O2Percent)-1,mean(SelectO2$O2Percent)+0.5),main="Raw O2 Percent")
-plot(SelectFlow$Millis,SelectFlow$FlowRate,type="l",main="Raw Flow Rate",ylim=c(-100,300))
+# Plotting both O2 & Flow rate to determine which 3 time sections are going to be used
 
-#plot o2 and flow to double check congruency between the two
+# Make a LARGE custom plot window for O2 and flow rate graphs
+par(mfrow=c(2,1), dev.new(width=29,height=18))
 
-#############################
-#Change for each breath bout#
-#############################
+# Plot raw O2 to help determine breaths
+plot(SelectO2$Millis, SelectO2$O2Percent, cex=0.25, ylim=c(mean(SelectO2$O2Percent)-1, mean(SelectO2$O2Percent)+0.5), main="Raw O2 Percent")
+plot(SelectFlow$Millis, SelectFlow$FlowRate, type="l", main="Raw Flow Rate", ylim=c(-100,300))
 
-#changing timeframe explored during respiration measurement
-xlimit<-c(6.67e6,6.6905e6)
-plot(SelectO2$Millis,SelectO2$O2Percent,type="l",xlim=xlimit)
-plot(SelectFlow$Millis,SelectFlow$FlowRate,type="l",xlim=xlimit,ylim=c(mean(SelectFlow$FlowRate)-150,mean(SelectFlow$FlowRate)+150))
+####
+# Change the timeframe explored during respiration measurement, this needs to be changed for each individual breath bout period examined
+xlimit <- c(6.67e6,6.6905e6)
 
-#O2: Only select the baseline. DO NOT INCLUDE BREATH.
-#Be sure to select entire long right tail of the breath
-#Be sure to select baseline that includes the time period of the flow rate breath
-dev.new(width=29,height=18)
-plot(SelectO2$Millis,SelectO2$O2Percent,type="l",xlim=xlimit)
-selectedPointsO2<-fhs(SelectO2,mark=TRUE)
-selectedPointsO2<-as.numeric(selectedPointsO2)
+# Plot individual breath bout period
+plot(SelectO2$Millis, SelectO2$O2Percent, type="l", xlim=xlimit)
+plot(SelectFlow$Millis, SelectFlow$FlowRate, type="l", xlim=xlimit, ylim=c(mean(SelectFlow$FlowRate)-150, mean(SelectFlow$FlowRate)+150))
 
-#Only select the baseline. DO NOT INCLUDE BREATH POINTS.
-dev.new(width=29,height=18)
-plot(SelectFlow$Millis,SelectFlow$FlowRate,type="l",xlim=xlimit,ylim=c(mean(SelectFlow$FlowRate)-200,mean(SelectFlow$FlowRate)+200))
+# O2 baseline selection: Only select the baseline, do not include the positive and negative peaks for the breath itself
+# The recovery period for O2 measurements can be long, be sure to select entire long right tail of the breath
+# Be sure to select baseline that includes the time period of the flow rate changes (in the graph below)
+dev.new(width=29, height=18)
+plot(SelectO2$Millis, SelectO2$O2Percent, type="l", xlim=xlimit)
+selectedPointsO2 <- fhs(SelectO2, mark=TRUE)
+selectedPointsO2 <- as.numeric(selectedPointsO2)
+
+#Flow rate baseline selection: Only select the baselinedo not include positive and negative peaks for breath itself
+dev.new(width=29, height=18)
+plot(SelectFlow$Millis, SelectFlow$FlowRate, type="l", xlim=xlimit, ylim=c(mean(SelectFlow$FlowRate)-200, mean(SelectFlow$FlowRate)+200))
 selectedPointsFlow <- fhs(SelectFlow, mark = TRUE)
-selectedPointsFlow<-as.numeric(selectedPointsFlow)
+selectedPointsFlow <- as.numeric(selectedPointsFlow)
 
 #Assign SubsetMillis as a vector
 SubsetMillisO2<-numeric(length(mydata$Millis))
@@ -234,7 +233,7 @@ xlimit
 plot(mydata$Millis/1000,mydata$O2Percent,type="l")
 
 #################################################################################
-#NEED TO RENAME EACH FILE FOR EACH FROG!i!i!i!i!i!i!i!i!i!i!i!i!i!i!i!i!i!i!i!i!i!
+#NEED TO RENAME EACH FILE FOR EACH FROG
 write.csv(dtBreath,
 "FILENAME")
 #################################################################################
