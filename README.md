@@ -114,7 +114,7 @@ BreathsPerHr | Number of exhales plus inhales recorded from the animal during th
 BotHeight(cm) | Height of bottle in centimeters used to enclose the animal during performance measurements
 TotWatVol(L) | Total volume of water the animal was in during performance measurements in liters
 InitialWatDO(mg/L) | Amount of dissolved oxygen that was recorded just before animal was placed in enclosure for the performance measurement in milligrams O2 per liter
-InitialWatDO(mg)	Amount of dissolved oxygen, in milligrams O2, that was recorded just before animal was placed in enclosure for the performance measurement in millgrams O2 calculated by multiplying InitialWatDO(mg/L) by TotWatVol(L)
+InitialWatDO(mg) | Amount of dissolved oxygen, in milligrams O2, that was recorded just before animal was placed in enclosure for the performance measurement in millgrams O2 calculated by multiplying InitialWatDO(mg/L) by TotWatVol(L)
 InitialWatTemp | Temperature of the water that was recorded just before animal was placed in enclosure for the performance measurement in Celsius
 InWatVol(L) | Total volume of water inside the bottle the animal was in during performance measurements in liters
 InWatDO(mg/L) | Amount of dissolved oxygen inside the bottle that was recorded just before animal was placed in enclosure for the performance measurement in milligrams O2 per liter
