@@ -1,0 +1,182 @@
+#integral measurements for an entire block for TOTAL OXYGEN CONSUMPTION
+
+#make a vector of all filenames, full path names required to use output as loop
+###################
+#change initial file path to match G Drive location
+#run only the one needed for your analysis
+#each block needs to be filtered out with pattern="_". "NegDay", "ZeroDay", "OneDay", "FourDay", "EightDay"
+###################
+
+#this one for OXYGEN
+#NEED TO CHANGE BOTH PATTERN AND FINAL FOLDER LOCATION TO GET PROPER DAY#####################################
+filename<-list.files(path="G:/My Drive/Raffel Lab Documents/2018-2019 Project Folders/2018-2019 X. Laevis Respirometry/X laevis Respiration/Experimental Data/Pulmonary Data/Detrended Oxygen/Block Five/Redo/",
+	pattern="Laevis",full.names=TRUE)
+
+##filename<-list.files(path="G:/My Drive/Raffel Lab Documents/2018-19 Xenopus Experiments/X laevis Respiration/Experimental Data/Pulmonary Data/Detrended Oxygen/Integral Organization/NegDay/",
+##	full.names=TRUE)
+
+#confirms it pulled files out
+filename
+
+#this one for BREATH BOUT
+#NEED TO CHANGE BOTH PATTERN AND FINAL FOLDER LOCATION TO GET PROPER DAY####################################
+filename<-list.files(path="G:/My Drive/Raffel Lab Documents/2018-19 Xenopus Experiments/X laevis Respiration/Experimental Data/Pulmonary Data/Breath Bout Data/Integral Organization/ZeroDay/",
+	pattern="ZeroDay",full.names=TRUE)
+
+#confirms it pulled files out
+filename
+
+#function to calculate all integrals
+#arguments:
+#filename: path to the file of interest
+#type: "oxygen" for output for overall O2 Percent change, "breaths" for output for individual breaths O2 Percent and flow rate
+
+RespIntegrals<-function(filename,type){
+	if(type == "oxygen"){
+		#read csv and subset first datapoint out (it has interval=0)
+		dat<-read.csv(file=filename,header=TRUE)
+		dat<-subset(dat,interval!=0)
+		
+		#total time of respiration
+		totalTimeSec<-max(dat$Seconds)
+	
+		#subset negative baseline and raw
+		negBase<-subset(dat,correctedBaseO2<=0)
+		negRaw<-subset(dat,correctedRawO2<=0)
+	
+		#subset positive baseline and raw
+		posBase<-subset(dat,correctedBaseO2>0)
+		posRaw<-subset(dat,correctedRawO2>0)
+	
+		#negative integral
+		negBaseInt<-sum(negBase$correctedBaseO2*negBase$interval)
+		negRawInt<-sum(negRaw$correctedRawO2*negRaw$interval)
+		negTotalO2<-(abs(abs(negRawInt)-abs(negBaseInt)))/100
+	
+		#positive integral
+		posBaseInt<-sum(posBase$correctedBaseO2*posBase$interval)
+		posRawInt<-sum(posRaw$correctedRawO2*posRaw$interval)
+		posTotalO2<-abs(abs(posRawInt)-abs(posBaseInt))
+	
+		#baseline check
+		baseCheck<-abs(abs(negBaseInt)-abs(posBaseInt))
+	
+		#output
+		output<-c(totalTimeSec,negBaseInt,posBaseInt,baseCheck,negRawInt,negTotalO2)
+		output
+		
+	} else if (type == "breaths"){
+		#read csv and subset first datapoint out (it has interval=0)
+		dat<-read.csv(file=filename,header=TRUE)
+		dat<-subset(dat,interval!=0)
+		
+		#total time of respiration
+		totalTimeSec<-max(dat$Seconds)
+		
+		#start time in milliseconds
+		startMillis<-min(dat$Millis)
+	
+		#end time in milliseconds
+		endMillis<-max(dat$Millis)
+	
+		#PERCENT OXYGEN
+		#subset negative baseline and raw
+		negBaseO2<-subset(dat,corBaseO2<=0)
+		negRawO2<-subset(dat,corRawO2<=0)
+	
+		#subset positive baseline and raw
+		posBaseO2<-subset(dat,corBaseO2>0)
+		posRawO2<-subset(dat,corRawO2>0)
+	
+		#negative integral
+		negBaseIntO2<-sum(negBaseO2$corBaseO2*negBaseO2$interval)
+		negRawIntO2<-sum(negRawO2$corRawO2*negRawO2$interval)
+		negTotalO2<-(abs(abs(negRawIntO2)-abs(negBaseIntO2)))/100
+	
+		#positive integral
+		posBaseIntO2<-sum(posBaseO2$corBaseO2*posBaseO2$interval)
+		posRawIntO2<-sum(posRawO2$corRawO2*posRawO2$interval)
+		posTotalO2<-abs(abs(posRawIntO2)-abs(posBaseIntO2))
+	
+		#baseline check
+		baseCheckO2<-abs(abs(negBaseIntO2)-abs(posBaseIntO2))
+	
+		#FLOW RATE
+		#subset negative baseline and raw
+		negBaseFlow<-subset(dat,corBaseFlow<=0)
+		negRawFlow<-subset(dat,corRawFlow<=0)
+		
+		#subset positive baseline and raw
+		posBaseFlow<-subset(dat,corBaseFlow>0)
+		posRawFlow<-subset(dat,corRawFlow>0)
+		
+		#negative integral
+		negBaseIntFlow<-sum(negBaseFlow$corBaseFlow*negBaseFlow$interval)
+		negRawIntFlow<-sum(negRawFlow$corRawFlow*negRawFlow$interval)
+		negTotalFlow<-abs(abs(negRawIntFlow)-abs(negBaseIntFlow))
+	
+		#positive integral
+		posBaseIntFlow<-sum(posBaseFlow$corBaseFlow*posBaseFlow$interval)
+		posRawIntFlow<-sum(posRawFlow$corRawFlow*posRawFlow$interval)
+		posTotalFlow<-abs(abs(posRawIntFlow)-abs(posBaseIntFlow))
+	
+		#baseline check
+		baseCheckFlow<-abs(abs(negBaseIntFlow)-abs(posBaseIntFlow))
+		
+		#test output
+		outputO2<-c(totalTimeSec,negBaseIntO2,posBaseIntO2,baseCheckO2,negRawIntO2,posRawIntO2,negTotalO2,posTotalO2)
+		outputFlow<-c(totalTimeSec,startMillis,endMillis,negBaseIntFlow,posBaseIntFlow,baseCheckFlow,negRawIntFlow,posRawIntFlow,negTotalFlow,posTotalFlow)
+		#output2test<-rbind(outputO2,outputFlow)
+		#output2test
+		output2<-c(totalTimeSec,startMillis,endMillis,negBaseIntO2,posBaseIntO2,baseCheckO2,negRawIntO2,posRawIntO2,negTotalO2,
+			negBaseIntFlow,posBaseIntFlow,baseCheckFlow,negRawIntFlow,posRawIntFlow,negTotalFlow,posTotalFlow)
+		output2
+	}
+}
+
+#vector for header names
+###########################
+#only run the lines for the analysis in question (header lengths are different for each)
+###########################
+#_____________________________
+#this for overall oxygen
+header<-c("filename","totalTimeSec","negBaseInt","posBaseInt","baseCheck","negRawInt","negTotal")
+df<-data.frame(matrix(ncol=6,nrow=0))
+
+#_____________________________
+#this for individual breaths
+header<-c("filename","totalTime","negBaseIntO2","posBaseIntO2","baseCheckO2","negRawIntO2","posRawIntO2","negTotalO2",
+	"negBaseIntFlow","posBaseIntFlow","baseCheckFlow","negRawIntFlow","posRawIntFlow","negTotalFlow","posTotalFlow")
+df<-data.frame(matrix(ncol=14,nrow=0))
+
+#loop to read each csv and calculate integrals
+for(f in filename){
+###########################
+	#be sure to change type="__" below to what you need; "oxygen" or "breaths"
+###########################
+	int<-RespIntegrals(filename=f,type="oxygen")
+
+	#construct data frame
+	df<-rbind(df,int)
+}
+
+#system makes alarm noise when done processing loop
+alarm()
+
+#add file names to data frame
+newdf<-cbind(filename,df)
+colnames(newdf)<-header
+
+#Detrended oxygen
+#################################################################################
+#NEED TO RENAME EACH FILE FOR EACH BLOCK
+write.csv(newdf,
+"FILENAME")
+#################################################################################
+
+#individual breath bout
+#################################################################################
+#NEED TO RENAME EACH FILE FOR EACH BLOCK
+write.csv(newdf,
+"FILENAME")
+#################################################################################
