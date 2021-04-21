@@ -28,13 +28,13 @@ plot(SelectFlow$Millis, SelectFlow$FlowRate, type="l", main="Raw Flow Rate", yli
 # Change the timeframe explored during respiration measurement, this needs to be changed for each individual breath bout period examined
 xlimit <- c(6.67e6,6.6905e6)
 
-# Plot individual breath bout period, choose selection areas that include the O2 & flow rate changes
+# Plot individual breath bout period, choose selection areas that include both the O2 & flow rate changes
 plot(SelectO2$Millis, SelectO2$O2Percent, type="l", xlim=xlimit)
 plot(SelectFlow$Millis, SelectFlow$FlowRate, type="l", xlim=xlimit, ylim=c(mean(SelectFlow$FlowRate)-150, mean(SelectFlow$FlowRate)+150))
 
 # O2 baseline selection: Only select the baseline, do not include the positive and negative peaks for the breath itself
-# The recovery period for O2 measurements can be long, be sure to select entire long right tail of the breath
-# Be sure to select baseline that includes the time period of the flow rate changes (from investigation above)
+# The recovery period for O2 measurements can be long, be mindful of the long right tail of the breath
+# Be sure to select baseline that includes the time period of the flow rate changes (from investigation plots above)
 dev.new(width=29, height=18)
 plot(SelectO2$Millis, SelectO2$O2Percent, type="l", xlim=xlimit)
 selectedPointsO2 <- fhs(SelectO2, mark=TRUE)
