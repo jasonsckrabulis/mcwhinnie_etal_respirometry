@@ -1,20 +1,19 @@
+# Total pulmonary oxygen calculations
 
-#Select raw Laevis CSV file for each measurement
-mydata<-read.csv(file.choose(),header=TRUE)
-
-#libraries
-#gatepoints- for free hand selection
+####
+# Libraries
 library(gatepoints)
-
-#zoo- for na.fill (replacement of NAs)
 library(zoo)
 
-#__________________________________________________________________________________
-#SELECT DATA
-#Subset data to not include NA
-SelectData<- subset(mydata[,c(3,9)],Millis!="NA")
-dev.new(width=16,height=12)
-plot(SelectData$Millis,SelectData$O2Percent,cex=0.5,ylim=c(mean(SelectData$O2Percent)-1,mean(SelectData$O2Percent)+0.5),main="Raw Data")
+# Select individual frog's raw measurement
+mydata <- read.csv(file.choose(),header=TRUE)
+
+# Subset data to not include NAs
+SelectData <- subset(mydata[,c(3,9)], Millis!="NA")
+
+# Make large plot device and plot O2 data
+dev.new(width=16, height=12)
+plot(SelectData$Millis, SelectData$O2Percent, cex=0.5, ylim=c(mean(SelectData$O2Percent)-1, mean(SelectData$O2Percent)+0.5), main="Raw Data")
 
 #Enclose baseline in polygon -- ALLOW TO RUN, MAY TAKE A LITTLE
 #Only select the three lines of variation. DO NOT INCLUDE BREATH POINTS.
