@@ -138,7 +138,7 @@ lines(smFlow$x, smFlow$y, type="l", col="green")
 ####
 # The lengths of O2 and flow rate will be different and the data need to be matched up
 
-#Function for trimming
+#Function for trimming (written after conducting O2 quantifications on entire frogs)
 RawData <- as.data.frame(cbind(Millis=mydata[,3], RawO2=mydata[,9], RawFlow=mydata[,6]))
 RawData <- subset(RawData, RawData$Millis!="NA")
 
