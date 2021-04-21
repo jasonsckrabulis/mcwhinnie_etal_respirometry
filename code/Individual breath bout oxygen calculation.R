@@ -6,7 +6,7 @@ library(gatepoints)
 library(zoo)
 
 #__________________________________________________________________________________
-# Select individual frog's measurement dataset
+# Select individual frog's raw measurement dataset
 mydata <- read.csv(file.choose(), header=TRUE)
 
 # Subset FlowRate data to not include NA
