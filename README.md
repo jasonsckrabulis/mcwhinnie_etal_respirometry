@@ -47,6 +47,7 @@ Our goal for this project was to develop a low-cost alternative to conventional 
    Folder of specialized R code (as .R files) used for data processing and respirometer Arduino code (as .ino file) 
    * `Individual breath bout oxygen calculation.R`  
    * `McWhinnie breath bout data.R`  
+   * `Block oxygen integrals.R`
    * `RespirometryDevice.ino`  
 * imgs  
    Folder of images used in `README.md`
