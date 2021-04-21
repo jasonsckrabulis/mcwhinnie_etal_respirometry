@@ -35,6 +35,7 @@ plot(SelectFlow$Millis, SelectFlow$FlowRate, type="l", xlim=xlimit, ylim=c(mean(
 # O2 baseline selection: Only select the baseline, do not include the positive and negative peaks for the breath itself
 # The recovery period for O2 measurements can be long, be mindful of the long right tail of the breath
 # Be sure to select baseline that includes the time period of the flow rate changes (from investigation plots above)
+# Only include +- 3 steps from the apparent average (equal to the variation in the sensor)
 dev.new(width=29, height=18)
 plot(SelectO2$Millis, SelectO2$O2Percent, type="l", xlim=xlimit)
 selectedPointsO2 <- fhs(SelectO2, mark=TRUE)
