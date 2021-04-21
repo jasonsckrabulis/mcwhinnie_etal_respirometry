@@ -1,8 +1,6 @@
 
 ## McWhinnie _et al_. - Temperature and mass scaling affect cutaneous and pulmonary respiratory performance in a diving frog
 
----
-
 ### Authors and maintainers
 
 Ryan B McWhinnie: rbmcwhin@gmail.com
