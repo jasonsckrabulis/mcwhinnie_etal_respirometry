@@ -20,6 +20,7 @@ plot(SelectData$Millis, SelectData$O2Percent, cex=0.5, ylim=c(mean(SelectData$O2
 # O2 baseline selection: Only select the baseline, do not include the positive and negative peaks for the breath itself
 # The recovery period for O2 measurements can be long, be mindful of the long right tail of the breath
 # Only include +- 3 steps from the apparent average (equal to the variation in the sensor)
+# This selection will take a long time to run
 selectedPoints <- fhs(SelectData, mark = TRUE)
 
 # Assign selected points as a vector
