@@ -1,4 +1,4 @@
-//McWhinnie et al. 2019 - Temperature and mass scaling affect cutaneous and pulmonary respiratory performance in a diving frog
+//McWhinnie et al. - Temperature and mass scaling affect cutaneous and pulmonary respiratory performance in a diving frog
 //Respirometry device operational code
 //___________________________
 
