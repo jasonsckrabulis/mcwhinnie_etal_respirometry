@@ -87,6 +87,19 @@ Figure 3: Process of baseline-correcting time series data for oxygen percentage 
 
 ### Air density calculation
 
+The following information was used to calculate air density for July and August 2018 using information from [WUnderground](https://www.wunderground.com/history/daily/us/mi/troy/KVLL/date/2018-11-1?cm_ven=localwx_history). See Supplemental Material of MS for full description of this calculation.
+
+Variable | July Value | August Value
+--- | --- | ---
+Elevation (m) | 286 | 286
+Room Air Temp. (C) | 20 | 20
+Altimeter Setting (Inch-Hg) | 30 | 30
+Dew Point (F) | 58 | 62
+Air pressure (atm) | 1.002663 | 1.002663
+
+[Air Density](https://www.engineersedge.com/calculators/air-density.htm)
+[Relative Humidity](http://bmcnoldy.rsmas.miami.edu/Humidity.html) based on August-Roche-Magnus approximation
+
 ---
 
 ### Variable descriptions
