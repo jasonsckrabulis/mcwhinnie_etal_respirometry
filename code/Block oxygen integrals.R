@@ -8,9 +8,6 @@
 # Oxygen example (Files organized into folders for each experimental block, no additional filter needed)
 filename <- list.files(path="PATH_TO_FOLDER", pattern="Laevis", full.names=TRUE)
 
-# Confirm it pulled files out
-filename
-
 #Breath bout example (Files also organized with day in filename: "NegDay", "ZeroDay", "OneDay", "FourDay", & "EightDay")
 filename <- list.files(path="PATH_TO_FOLDER", pattern="ZeroDay", full.names=TRUE)
 
@@ -96,82 +93,66 @@ RespIntegrals <- function(filename, type){
 		# Check baseline approximtes 0
 		baseCheckO2 <- abs(abs(negBaseIntO2) - abs(posBaseIntO2))
 	
-		#Flow rate calculations
+		# Flow rate calculations
 		# Subset negative baseline and raw values
 		negBaseFlow <- subset(dat, corBaseFlow<=0)
 		negRawFlow <- subset(dat, corRawFlow<=0)
 		
-		#subset positive baseline and raw
-		posBaseFlow<-subset(dat,corBaseFlow>0)
-		posRawFlow<-subset(dat,corRawFlow>0)
+		# Subset positive baseline and raw values
+		posBaseFlow <- subset(dat, corBaseFlow>0)
+		posRawFlow <- subset(dat, corRawFlow>0)
 		
-		#negative integral
-		negBaseIntFlow<-sum(negBaseFlow$corBaseFlow*negBaseFlow$interval)
-		negRawIntFlow<-sum(negRawFlow$corRawFlow*negRawFlow$interval)
-		negTotalFlow<-abs(abs(negRawIntFlow)-abs(negBaseIntFlow))
+		# Calculate negative integral
+		negBaseIntFlow <- sum(negBaseFlow$corBaseFlow*negBaseFlow$interval)
+		negRawIntFlow <- sum(negRawFlow$corRawFlow*negRawFlow$interval)
+		negTotalFlow <- abs(abs(negRawIntFlow) - abs(negBaseIntFlow))
 	
-		#positive integral
-		posBaseIntFlow<-sum(posBaseFlow$corBaseFlow*posBaseFlow$interval)
-		posRawIntFlow<-sum(posRawFlow$corRawFlow*posRawFlow$interval)
-		posTotalFlow<-abs(abs(posRawIntFlow)-abs(posBaseIntFlow))
+		# Calculate positive integral
+		posBaseIntFlow <- sum(posBaseFlow$corBaseFlow*posBaseFlow$interval)
+		posRawIntFlow <- sum(posRawFlow$corRawFlow*posRawFlow$interval)
+		posTotalFlow <- abs(abs(posRawIntFlow) - abs(posBaseIntFlow))
 	
-		#baseline check
-		baseCheckFlow<-abs(abs(negBaseIntFlow)-abs(posBaseIntFlow))
+		# Check baseline validity
+		baseCheckFlow <- abs(abs(negBaseIntFlow) - abs(posBaseIntFlow))
 		
-		#test output
-		outputO2<-c(totalTimeSec,negBaseIntO2,posBaseIntO2,baseCheckO2,negRawIntO2,posRawIntO2,negTotalO2,posTotalO2)
-		outputFlow<-c(totalTimeSec,startMillis,endMillis,negBaseIntFlow,posBaseIntFlow,baseCheckFlow,negRawIntFlow,posRawIntFlow,negTotalFlow,posTotalFlow)
-		#output2test<-rbind(outputO2,outputFlow)
-		#output2test
-		output2<-c(totalTimeSec,startMillis,endMillis,negBaseIntO2,posBaseIntO2,baseCheckO2,negRawIntO2,posRawIntO2,negTotalO2,
-			negBaseIntFlow,posBaseIntFlow,baseCheckFlow,negRawIntFlow,posRawIntFlow,negTotalFlow,posTotalFlow)
+		# Output integral calculations
+		outputO2 <- c(totalTimeSec, negBaseIntO2, posBaseIntO2, baseCheckO2, negRawIntO2, posRawIntO2, negTotalO2, posTotalO2)
+		outputFlow <- c(totalTimeSec, startMillis, endMillis, negBaseIntFlow, posBaseIntFlow, baseCheckFlow, negRawIntFlow, posRawIntFlow, negTotalFlow, posTotalFlow)
+		output2 <- c(totalTimeSec, startMillis, endMillis, negBaseIntO2, posBaseIntO2, baseCheckO2, negRawIntO2, posRawIntO2, negTotalO2, negBaseIntFlow, posBaseIntFlow, aseCheckFlow, negRawIntFlow, posRawIntFlow, negTotalFlow, posTotalFlow)
 		output2
 	}
 }
 
-#vector for header names
-###########################
-#only run the lines for the analysis in question (header lengths are different for each)
-###########################
-#_____________________________
-#this for overall oxygen
-header<-c("filename","totalTimeSec","negBaseInt","posBaseInt","baseCheck","negRawInt","negTotal")
-df<-data.frame(matrix(ncol=6,nrow=0))
+####
+# Generate header for data
+# Run L132 & L133 for oxygen for an individual frog
+# Run L for oxygen and flow for an individual breath
 
-#_____________________________
-#this for individual breaths
-header<-c("filename","totalTime","negBaseIntO2","posBaseIntO2","baseCheckO2","negRawIntO2","posRawIntO2","negTotalO2",
-	"negBaseIntFlow","posBaseIntFlow","baseCheckFlow","negRawIntFlow","posRawIntFlow","negTotalFlow","posTotalFlow")
-df<-data.frame(matrix(ncol=14,nrow=0))
+# Overall oxygen for a single frog
+header <- c("filename", "totalTimeSec", "negBaseInt", "posBaseInt", "baseCheck", "negRawInt", "negTotal")
+df <- data.frame(matrix(ncol=6, nrow=0))
 
-#loop to read each csv and calculate integrals
+# Individual breaths
+header <- c("filename", "totalTime", "negBaseIntO2", "posBaseIntO2", "baseCheckO2", "negRawIntO2", "posRawIntO2", "negTotalO2",	"negBaseIntFlow", "posBaseIntFlow", "baseCheckFlow", "negRawIntFlow", "posRawIntFlow", "negTotalFlow", "posTotalFlow")
+df <- data.frame(matrix(ncol=14, nrow=0))
+
+# For loop to read each csv within the block folder and calculate integrals
 for(f in filename){
-###########################
-	#be sure to change type="__" below to what you need; "oxygen" or "breaths"
-###########################
-	int<-RespIntegrals(filename=f,type="oxygen")
+	
+	# Call function above (this example calculates overall oxygen for each individual frog) 
+	int <- RespIntegrals(filename=f, type="oxygen")
 
-	#construct data frame
-	df<-rbind(df,int)
+	# Construct data frame
+	df <- rbind(df, int)
 }
 
-#system makes alarm noise when done processing loop
+#system makes alarm noise when done processing loop since this may take a while
 alarm()
 
-#add file names to data frame
-newdf<-cbind(filename,df)
-colnames(newdf)<-header
+# Add file names to data frame
+newdf <- cbind(filename, df)
+colnames(newdf) <- header
 
-#Detrended oxygen
-#################################################################################
-#NEED TO RENAME EACH FILE FOR EACH BLOCK
-write.csv(newdf,
-"FILENAME")
-#################################################################################
-
-#individual breath bout
-#################################################################################
-#NEED TO RENAME EACH FILE FOR EACH BLOCK
-write.csv(newdf,
-"FILENAME")
+# Write all data from a folder to a .csv with full filename and path as chosen by user
+write.csv(newdf, "FILENAME")
 #################################################################################
