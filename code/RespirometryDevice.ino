@@ -81,7 +81,7 @@ int SdPresencePin = 10;
 //___________________________
 //Setup and initialization
 void setup(){
-  //Start serial communication through at 9600 baud (bits/s)
+  //Start serial communication through at 115200 baud (bits/s)
   Serial.begin(115200);
   
   //Set led pins to output and off
