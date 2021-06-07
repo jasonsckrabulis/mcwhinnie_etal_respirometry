@@ -42,7 +42,7 @@ for(i in 1:length(selectedPoints)){
 	  SubsetO2[selectedPoints[i]] <- mydata$O2Percent[selectedPoints[i]]
 }
 
-# Subsetted data set as data fram
+# Subsetted data set as data frame
 SubsetData <- cbind(SubsetMillis,SubsetO2)
 
 ####
