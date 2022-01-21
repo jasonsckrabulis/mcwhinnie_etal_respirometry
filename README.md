@@ -18,13 +18,14 @@ For questions concerning the manuscript, please email the corresponding author a
 
 ### Change log
 
+* Jan 20, 2022: Added full citation from _Integrative Zoology_.
 * Apr 22, 2021: Upload .csv datasets & .R specialty code. Added variable descriptions and air density variables to `README.md`.
 * Aug 12, 2019: First full commit
 
 ### Citation
 
 Please cite work as:  
->TBD
+>McWhinnie RB, Sckrabulis JP, and TR Raffel. (2021) Temperature and mass scaling affect cutaneous and pulmonary respiratory performance in a diving frog. _Integrative Zoology_ 16(5): 712-728. https://doi.org/10.1111/1749-4877.12551.
 
 ---
 
