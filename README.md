@@ -40,12 +40,12 @@ Our goal for this project was to develop a low-cost alternative to conventional 
 * README.md  
 * `Bill of Materials.csv`  
    Parts list, excluding an enclosure, O2 modification, general supplies & equipment, and microSD card  
-* data (will be uploaded upon acceptance)  
+* data 
    Folder of experimental data as .csv files used in data analysis for manuscript (variable descriptions are below)  
    * `Example respirometry measurement.csv`  
    * `McWhinnie breath bout data.csv`  
    * `McWhinnie master data.csv`  
-* code (will be uploaded upon acceptance)  
+* code  
    Folder of specialized R code (as .R files) used for data processing and respirometer Arduino code (as .ino file) 
    * `Individual breath bout oxygen calculation.R`  
    * `Total pulmonary oxygen calculation.R`  
