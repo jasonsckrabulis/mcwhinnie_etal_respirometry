@@ -126,7 +126,7 @@ RespIntegrals <- function(filename, type){
 ####
 # Generate header for data
 # Run L132 & L133 for oxygen for an individual frog
-# Run L for oxygen and flow for an individual breath
+# Run L136 & L137 for oxygen and flow for an individual breath
 
 # Overall oxygen for a single frog
 header <- c("filename", "totalTimeSec", "negBaseInt", "posBaseInt", "baseCheck", "negRawInt", "negTotal")
