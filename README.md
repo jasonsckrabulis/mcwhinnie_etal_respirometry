@@ -166,7 +166,7 @@ mLAirPerBreath | Average volume of air breathed in milliliters air per breath
 
 **Example respirometry measurement.csv**
 
-Calculations for these values can be found in `RespirometryDevice.ino`
+Calculations for these values can be found in `RespirometryDevice.ino`.
 
 Variable Name | Description
 --- | ---
