@@ -126,7 +126,7 @@ BreathCount | Number of exhales plus inhales recorded from the animal during the
 Length(s) | Length of measurement in seconds
 Length(min) | Length of measurement in minutes
 Length(hr) | Length of measurement in hours
-BreathsPerHr | Number of exhales plus inhales recorded from the animal during the measurement period divided by measurement length in hours (BreathCount/Length(hr).
+BreathsPerHr | Number of exhales plus inhales recorded from the animal during the measurement period divided by measurement length in hours (BreathCount/Length(hr)).
 BotHeight(cm) | Height of bottle in centimeters used to enclose the animal during performance measurements
 TotWatVol(L) | Total volume of water the animal was in during performance measurements in liters
 InitialWatDO(mg/L) | Amount of dissolved oxygen that was recorded just before animal was placed in enclosure for the performance measurement in milligrams O2 per liter
