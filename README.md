@@ -25,7 +25,7 @@ For questions concerning the manuscript, please email the corresponding author a
 ### Citation
 
 Please cite work as:  
->McWhinnie RB, Sckrabulis JP, and TR Raffel. (2021) Temperature and mass scaling affect cutaneous and pulmonary respiratory performance in a diving frog. _Integrative Zoology_ 16(5): 712-728. https://doi.org/10.1111/1749-4877.12551.
+> McWhinnie RB, Sckrabulis JP, and TR Raffel. (2021) Temperature and mass scaling affect cutaneous and pulmonary respiratory performance in a diving frog. _Integrative Zoology_ 16(5): 712-728. https://doi.org/10.1111/1749-4877.12551.
 
 ---
 
