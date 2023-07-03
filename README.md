@@ -37,7 +37,8 @@ Our goal for this project was to develop a low-cost alternative to conventional 
 
 ### Repository contents
 
-* README.md  
+* README.md
+* LICENSE.txt
 * `Bill of Materials.csv`  
    Parts list, excluding an enclosure, O2 modification, general supplies & equipment, and microSD card  
 * data 
