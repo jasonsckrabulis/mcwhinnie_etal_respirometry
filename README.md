@@ -20,7 +20,7 @@ For questions concerning the manuscript, please email the corresponding author a
 
 * Jan 20, 2022: Added full citation from _Integrative Zoology_.
 * Apr 22, 2021: Upload .csv datasets & .R specialty code. Added variable descriptions and air density variables to `README.md`.
-* Aug 12, 2019: First full commit
+* Aug 12, 2019: First full commit.
 
 ### Citation
 
