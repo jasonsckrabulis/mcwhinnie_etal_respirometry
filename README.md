@@ -116,7 +116,7 @@ Variable Name | Description
 FrogID | Identification of individual frog
 MeasurementID | Identification of a given measurement for a given frog
 Block | Temporal block the animal was measured in
-DayNum | One of five days performance measurements were taken on (-1, 0, 1, 4, 8) (For the additional post-experimental measurements, DayNum = 0 is used as a place holder since there was no acclimation period for these frogs)
+DayNum | One of five days performance measurements were taken on (-1, 0, 1, 4, 8) (For the additional post-experimental measurements, `DayNum` = 0 is used as a place holder since there was no acclimation period for these frogs)
 Day | One of six performance measurements (distinguishes between performance measurements one and two for the zero-day measurements)
 AccMassChange(g) | Change in mass in grams of a given frog during the acclimation period
 AvgMass(g) | Average of mass of each frog taken immediately before and after the acclimation period in grams
@@ -128,31 +128,31 @@ BreathCount | Number of exhales plus inhales recorded from the animal during the
 Length(s) | Length of measurement in seconds
 Length(min) | Length of measurement in minutes
 Length(hr) | Length of measurement in hours
-BreathsPerHr | Number of exhales plus inhales recorded from the animal during the measurement period divided by measurement length in hours (BreathCount/Length(hr)).
+BreathsPerHr | Number of exhales plus inhales recorded from the animal during the measurement period divided by measurement length in hours (`BreathCount`/`Length(hr)`).
 BotHeight(cm) | Height of bottle in centimeters used to enclose the animal during performance measurements
 TotWatVol(L) | Total volume of water the animal was in during performance measurements in liters
 InitialWatDO(mg/L) | Amount of dissolved oxygen that was recorded just before animal was placed in enclosure for the performance measurement in milligrams O2 per liter
-InitialWatDO(mg) | Amount of dissolved oxygen, in milligrams O2, that was recorded just before animal was placed in enclosure for the performance measurement in millgrams O2 calculated by multiplying InitialWatDO(mg/L) by TotWatVol(L)
+InitialWatDO(mg) | Amount of dissolved oxygen, in milligrams O<sub>2</sub>, that was recorded just before animal was placed in enclosure for the performance measurement in millgrams O2 calculated by multiplying `InitialWatDO(mg/L)` by `TotWatVol(L)`
 InitialWatTemp | Temperature of the water that was recorded just before animal was placed in enclosure for the performance measurement in Celsius
 InWatVol(L) | Total volume of water inside the bottle the animal was in during performance measurements in liters
-InWatDO(mg/L) | Amount of dissolved oxygen inside the bottle that was recorded just before animal was placed in enclosure for the performance measurement in milligrams O2 per liter
-InWatDO(mg) | Amount of dissolved oxygen inside the bottle, in milligrams O2, that was recorded just before animal was placed in enclosure for the performance measurement in milligrams O2 calculated by multiplying InWatDO(mg/L) by InWatVol(L)
+InWatDO(mg/L) | Amount of dissolved oxygen inside the bottle that was recorded just before animal was placed in enclosure for the performance measurement in milligrams O<sub>2</sub> per liter
+InWatDO(mg) | Amount of dissolved oxygen inside the bottle, in milligrams O<sub>2</sub>, that was recorded just before animal was placed in enclosure for the performance measurement in milligrams O<sub>2</sub> calculated by multiplying `InWatDO(mg/L)` by `InWatVol(L)`
 InWatTemp | Temperature of the water inside the bottle that was recorded just before animal was placed in enclosure for the performance measurement in Celsius
 OutWatVol(L) | Total volume of water outside the bottle the animal was in during performance measurements in liters
-OutWatDO(mg/L) | Amount of dissolved oxygen outside the bottle that was recorded just before animal was placed in enclosure for the performance measurement in milligrams O2 per liter
-OutWatDO(mg) | Amount of dissolved oxygen outside the bottle that was recorded just before animal was placed in enclosure for the performance measurement in milligrams O2
+OutWatDO(mg/L) | Amount of dissolved oxygen outside the bottle that was recorded just before animal was placed in enclosure for the performance measurement in milligrams O<sub>2</sub> per liter
+OutWatDO(mg) | Amount of dissolved oxygen outside the bottle that was recorded just before animal was placed in enclosure for the performance measurement in milligrams O<sub>2</sub>
 OutWatTemp | Temperature of the water outside the bottle that was recorded just before animal was placed in enclosure for the performance measurement in Celsius
-TotCutO2Cons(mg) | Total oxygen consumed cutaneously throughout the performance period (InWatDO(mg)+OutWatDO(mg)).
-CutO2PerfRate(mg/hr) | Cutaneous rate of oxygen consumed per hour calculated by dividing TotCutO2Cons(mg) by Length(hr) in milligrams O2 per hour
-CutMircomolO2/gFrog/hr | Total oxygen consumed cutaneously throughout the performance period calculated by dividing CutO2PerfRate(mg/hr) by AvgMass(g) in milligrams O2 per grams of frog per hour
-PulmO2Cons(mg) | Total oxygen that taken up through the lungs throughout the performance period in milligrams O2
-PulmO2PerfRate(mg/hr) | Pulmonary rate of oxygen consumed in milligrams O2 per hour
-PulmMicromolO2/gFrog/hr | Total  oxygen taken up through the lungs throughout the performance period calculated by dividing PulmO2PerfRate(mg/hr) by AvgMass(g) in milligrams O2 per gram frog per hour
-TotO2Consumed(mg) | Total oxygen that was consumed via both cutaneous and pulmonary means (TotCutO2Cons(mg)+PulmO2Cons(mg))
-TotO2PerfRate(mg/hr) | Total rate of oxygen consumed calculated by dividing TotO2Consumed(mg) by Length(hr) in milligrams per hour
-TotMicromolO2/gFrog/hr | Total oxygen consumed via both cutaneous and pulmonary means calculated by dividing TotO2PerfRate(mg/hr) by AvgMass(g) in milligrams O2 per gram frog per hour
-PropCut | Proportion of total O2 consumption performed cutaneously
-PropPulm | Proportion of total O2 consumption performed via pulmonary means
+TotCutO2Cons(mg) | Total oxygen consumed cutaneously throughout the performance period (`InWatDO(mg)`+`OutWatDO(mg)`).
+CutO2PerfRate(mg/hr) | Cutaneous rate of oxygen consumed per hour calculated by dividing `TotCutO2Cons(mg)` by `Length(hr)` in milligrams O<sub>2</sub> per hour
+CutMircomolO2/gFrog/hr | Total oxygen consumed cutaneously throughout the performance period calculated by dividing `CutO2PerfRate(mg/hr)` by `AvgMass(g)` in milligrams O<sub>2</sub> per grams of frog per hour
+PulmO2Cons(mg) | Total oxygen that taken up through the lungs throughout the performance period in milligrams O<sub>2</sub>
+PulmO2PerfRate(mg/hr) | Pulmonary rate of oxygen consumed in milligrams O<sub>2</sub> per hour
+PulmMicromolO2/gFrog/hr | Total  oxygen taken up through the lungs throughout the performance period calculated by dividing `PulmO2PerfRate(mg/hr)` by `AvgMass(g)` in milligrams O<sub>2</sub> per gram frog per hour
+TotO2Consumed(mg) | Total oxygen that was consumed via both cutaneous and pulmonary means (`TotCutO2Cons(mg)`+`PulmO2Cons(mg)`)
+TotO2PerfRate(mg/hr) | Total rate of oxygen consumed calculated by dividing `TotO2Consumed(mg)` by `Length(hr)` in milligrams per hour
+TotMicromolO2/gFrog/hr | Total oxygen consumed via both cutaneous and pulmonary means calculated by dividing `TotO2PerfRate(mg/hr)` by `AvgMass(g)` in milligrams O<sub>2</sub> per gram frog per hour
+PropCut | Proportion of total O<sub>2</sub> consumption performed cutaneously
+PropPulm | Proportion of total O<sub>2</sub> consumption performed via pulmonary means
 
 **McWhinnie breath bout data.csv**
 
@@ -163,7 +163,7 @@ Variable Name | Description
 MeasurementID | For the breath bouts, animals' performance was measured at one of two sequential time points (`ZeroOne` & `ZeroTwo`) at zero days post acclimation
 Breaths | Total number of measured inhales and exhales for a given breath bout
 BreathsPerMin | Number of total breaths taken during the breath bout per minute
-mgO2ConsPerBreath | Average mass of oxygen consumed in milligrams O2 per breath
+mgO2ConsPerBreath | Average mass of oxygen consumed in milligrams O<sub>2</sub> per breath
 mLAirPerBreath | Average volume of air breathed in milliliters air per breath
 
 **Example respirometry measurement.csv**
@@ -176,8 +176,8 @@ Date | Measurement start date calculated by real-time clock module
 ReadTime | Time of day of measurement start date calculated by real-time clock module
 Millis | Milliseconds since power was provided to device for time series
 FlowAnalog | Number of analog reads (0 to 1023) on the flow rate sensor pin
-FlowVoltage | Calculated voltage based on FlowAnalog
-FlowRate | Calculated flow rate in SCCM based on voltage
+FlowVoltage | Calculated voltage based on `FlowAnalog`
+FlowRate | Calculated flow rate in SCCM based on `FlowVoltage`
 O2Analog | Number of analog reads (0 to 1023) on the oxygen sensor pin
-O2Voltage | Calculated voltage based on O2Analog
-O2Percent | Calculated oxygen percentage based on voltage
+O2Voltage | Calculated voltage based on `O2Analog`
+O2Percent | Calculated oxygen percentage based on `O2Voltage`
